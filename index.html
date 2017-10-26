@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Laracasts - Vue</title>
+  </head>
+  <body>
+    <div id="root">
+      <input v-model="message" type="text" name="" value="">
+
+      <p>The value of the input is {{ message }}</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+  </body>
+  <script>
+    new Vue({
+      el: '#root',
+      data: {
+        message: 'Hello World!'
+      }
+    })
+  </script>
+</html>
