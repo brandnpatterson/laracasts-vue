@@ -10,26 +10,11 @@
         <!-- <li v-for="name in names">{{ name }}</li> -->
         <li v-for="name in names" v-text="name"></li>
 
-        <input id="input" type="text" name="" value="">
-        <button id="button" type="button" name="button">Add Name</button>
+        <input id="input" type="text" v-model="newName" autofocus>
+        <button @click="addName">Add Name</button>
       </ul>
     </div>
     <script src="https://unpkg.com/vue"></script>
   </body>
-  <script>
-    const app = new Vue({
-      el: '#root',
-      data: {
-        names: ['Brandon', 'Lauren', 'Riley', 'Hamlet']
-      },
-      mounted () {
-        document.querySelector('#button').addEventListener('click', () => {
-          let name = document.querySelector('#input');
-          app.names.push(name.value);
-
-          name.value = '';
-        });
-      }
-    });
-  </script>
+  <script src="app.js"></script>
 </html>
