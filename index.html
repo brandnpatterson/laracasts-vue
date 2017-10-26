@@ -6,61 +6,10 @@
   </head>
   <body>
     <div id="root">
-      <h1> {{ reversedMessage }}</h1>
-
-      <div>
-        <h2>All Tasks</h2>
-        <ul>
-          <li v-for="task in tasks">
-            <input v-model="task.completed" type="checkbox">
-            {{ task.description }}
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2>Complete Tasks</h2>
-        <ul>
-          <li v-for="task in completeTasks"> {{ task.description }}
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2>Incomplete Tasks</h2>
-        <ul>
-          <li v-for="task in incompleteTasks"> {{ task.description }}
-          </li>
-        </ul>
-      </div>
+      <task-list>
+      </task-list>
     </div>
     <script src="https://unpkg.com/vue"></script>
   </body>
-  <script>
-    const app = new Vue({
-      el: '#root',
-      data: {
-        message: 'Jello Horld',
-        tasks: [
-          { description: 'Go to the store', completed: true },
-          { description: 'Finish Vue tutorial', completed: false },
-          { description: 'Clean inbox', completed: true },
-          { description: 'Check slack', completed: true },
-          { description: 'Clean room', completed: false }
-        ]
-      },
-      mounted() {
-
-      },
-      computed: {
-        reversedMessage () {
-          return this.message.split('').reverse().join('');
-        },
-        completeTasks () {
-          return this.tasks.filter(task => task.completed);
-        },
-        incompleteTasks () {
-          return this.tasks.filter(task => !task.completed);
-        }
-      }
-    });
-  </script>
+  <script src="main.js"></script>
 </html>
