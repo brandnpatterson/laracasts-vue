@@ -48,8 +48,6 @@ Vue.component('tab', {
   `
 });
 
-
-
 new Vue({
   el: '#root'
 });
