@@ -12,10 +12,20 @@
   </head>
   <body>
     <div id="root" class="container">
-      <message title="Hello World" body="Lorem ipsum dolor sit amet."></message>
-      <message title="Hello Universe" body="Bla Bla Bla."></message>
-      <modal v-if="showModal" @close="showModal=false" body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."></modal>
-      <button @click="showModal=true" class="button is-primary">Show Modal</button>
+      <tabs>
+        <tab name="About Us" :selected="true">
+          <h2>Here is the content for about us.</h2>
+        </tab>
+        <tab name="About Our Culture">
+          <h2>Here is the content for about our culture.</h2>
+        </tab>
+        <tab name="About Our Vision">
+          <h2>Here is the content for about our vision.</h2>
+        </tab>
+        <tab name="About Our Other Things">
+          <h2>Here is the content for about our other things.</h2>
+        </tab>
+      </tabs>
     </div>
     <script src="https://unpkg.com/vue"></script>
   </body>

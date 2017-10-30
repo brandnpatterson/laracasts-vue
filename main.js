@@ -1,42 +1,55 @@
-Vue.component('message', {
-  props: [ 'title', 'body' ],
+Vue.component('tabs', {
+  template: `
+  <div>
+    <div class="tabs">
+      <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
+        <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
+      </li>
+    </div>
+
+    <div class="tabs-details">
+      <slot></slot>
+    </div>
+  </div>
+  `,
   data () {
-    return {
-      isVisible: true
-    };
+    return { tabs: [] };
+  },
+  created () {
+    this.tabs = this.$children;
+  },
+  methods: {
+    selectTab (selectedTab) {
+      this.tabs.forEach(t => {
+        t.isActive = (t.name === selectedTab.name);
+      });
+    }
+  }
+});
+
+Vue.component('tab', {
+  props: {
+    name: { required: true },
+    selected: { default: false }
+  },
+  data () {
+    return { isActive: false };
+  },
+  computed: {
+    href () {
+      return `#${this.name.toLowerCase().replace(/ /g, '-')}`;
+    }
+  },
+  mounted () {
+    this.isActive = this.selected;
   },
   template: `
-  <article class="message" v-show="this.isVisible">
-    <div class="message-header">
-      <p>{{ title }}</p>
-      <button @click="isVisible=false" class="delete" aria-label="delete"></button>
-    </div>
-    <div class="message-body">
-      {{ body }}
-    </div>
-  </article>
+    <div v-show="isActive"><slot></slot></div>
   `
 });
 
-Vue.component('modal', {
-  props: ['body'],
-  template: `
-  <div class="modal is-active">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <p>
-          {{ body }}
-        </p>
-      </div>
-    </div>
-    <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
-  </div>
-  `
-})
+
+
 new Vue({
-  el: '#root',
-  data: {
-    showModal: false
-  }
+  el: '#root'
 });
