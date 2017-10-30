@@ -1,26 +1,42 @@
-Vue.component('task-list', {
-    template: `
-      <div>
-        <task v-for="task in tasks" key="index">{{ task.name }}</task>
+Vue.component('message', {
+  props: [ 'title', 'body' ],
+  data () {
+    return {
+      isVisible: true
+    };
+  },
+  template: `
+  <article class="message" v-show="this.isVisible">
+    <div class="message-header">
+      <p>{{ title }}</p>
+      <button @click="isVisible=false" class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      {{ body }}
+    </div>
+  </article>
+  `
+});
+
+Vue.component('modal', {
+  props: ['body'],
+  template: `
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <p>
+          {{ body }}
+        </p>
       </div>
-    `,
-    data () {
-      return {
-        tasks: [
-          { name: 'Go to the store', completed: true },
-          { name: 'Go to work', completed: false },
-          { name: 'Go get a haircut', completed: true },
-          { name: 'Go home', completed: true },
-          { name: 'Go to Lauren\'s', completed: false },
-        ]
-      }
-    }
-});
-
-Vue.component('task', {
-    template: '<li><slot></slot></li>'
-});
-
+    </div>
+    <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+  </div>
+  `
+})
 new Vue({
-  el: '#root'
+  el: '#root',
+  data: {
+    showModal: false
+  }
 });

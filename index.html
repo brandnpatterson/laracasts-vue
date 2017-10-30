@@ -3,11 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Laracasts - Vue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+    <style media="screen">
+      body {
+        margin-top: 40px;
+      }
+    </style>
   </head>
   <body>
-    <div id="root">
-      <task-list>
-      </task-list>
+    <div id="root" class="container">
+      <message title="Hello World" body="Lorem ipsum dolor sit amet."></message>
+      <message title="Hello Universe" body="Bla Bla Bla."></message>
+      <modal v-if="showModal" @close="showModal=false" body="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."></modal>
+      <button @click="showModal=true" class="button is-primary">Show Modal</button>
     </div>
     <script src="https://unpkg.com/vue"></script>
   </body>
