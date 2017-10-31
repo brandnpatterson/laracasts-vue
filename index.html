@@ -1,25 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Laracasts - Vue</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
-    <style media="screen">
-      body {
-        margin-top: 40px;
-      }
-    </style>
+    <title>hello-vue</title>
   </head>
   <body>
-    <div id="root" class="container">
-      <progress-view inline-template>
-        <div>
-          <h2>Your progress through this course is {{ completionRate }}%</h2>
-          <button @click="completionRate += 10">Update Completion Rate</button>
-        </div>
-      </progress-view>
-    </div>
-    <script src="https://unpkg.com/vue"></script>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
   </body>
-  <script src="main.js"></script>
 </html>
