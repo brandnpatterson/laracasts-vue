@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <message>Hello Vue</message>
-    <message>Hello Vue</message>
+    <counter></counter>
   </div>
 </template>
 
 <script>
-import Message from './components/Message.vue';
+import Counter from './components/Counter.vue';
 
 export default {
   name: 'app',
-  components: { Message },
+  components: { Counter },
   data () {
     return {
 
