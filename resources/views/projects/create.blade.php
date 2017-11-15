@@ -14,7 +14,7 @@
     <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
       <div class="control">
         <label for="name" class="label">Project Name:</label>
-        <input type="text" id="name" name="name" class="input" v-model="form.name"> 
+        <input type="text" id="name" name="name" class="input" v-model="form.name">
         <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
       </div>
       <div class="control">
