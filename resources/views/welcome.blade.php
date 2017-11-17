@@ -7,10 +7,21 @@
     <title>Laravel</title>
   </head>
   <body>
-    <div id="app">
-      <ul>
-        <li v-for="skill in skills" v-text="skill"></li>
-      </ul>
+    <!-- <div id="one">
+      <h2>@{{ user.first }} @{{ user.last }}</h2>
+      <input type="text" v-model="user.first">
+      <input type="text" v-model="user.last">
     </div>
+    <div id="two">
+      <h2>@{{ user.first }} @{{ user.last }}</h2>
+      <input type="text" v-model="user.first">
+      <input type="text" v-model="user.last">
+    </div> -->
+    <div id="coupons">
+      <coupon v-bind:code="coupon" v-on:input="coupon = arguments[0]"></coupon>
+      <coupon2 v-bind:value="coupon2" v-on:input="coupon2 = arguments[0]"></coupon2>
+    </div>
+    <script src="/js/vendor.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
