@@ -12,8 +12,5 @@
         <li v-for="skill in skills" v-text="skill"></li>
       </ul>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="/js/app.js"></script>
   </body>
 </html>
