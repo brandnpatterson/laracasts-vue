@@ -1,1 +1,236 @@
-webpackJsonp([0],{11:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}var u=n(3),o=r(u),i=n(5),a=r(i),s=n(32),c=r(s),f=n(34),l=r(f);window.axios=a.default,window.Form=c.default,new o.default({el:"#app",components:{Example:l.default},data:{form:new c.default({name:"",description:""})},methods:{onSubmit:function(){this.form.post("/projects").then(function(e){return alert("Wahoo!")})}}})},32:function(e,t,n){"use strict";function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=n(33),i=function(e){return e&&e.__esModule?e:{default:e}}(o),a=function(){function e(t){r(this,e),this.originalData=t;for(var n in t)this[n]=t[n];this.errors=new i.default}return u(e,[{key:"data",value:function(){var e={};for(var t in this.originalData)e[t]=this[t];return e}},{key:"reset",value:function(){for(var e in this.originalData)this[e]="";this.errors.clear()}},{key:"post",value:function(e){return this.submit("post",e)}},{key:"put",value:function(e){return this.submit("put",e)}},{key:"patch",value:function(e){return this.submit("patch",e)}},{key:"delete",value:function(e){return this.submit("delete",e)}},{key:"submit",value:function(e,t){var n=this;return new Promise(function(r,u){axios[e](t,n.data()).then(function(e){n.onSuccess(e.data),r(e.data)}).catch(function(e){n.onFail(e.response.data),u(e.response.data)})})}},{key:"onSuccess",value:function(e){alert(e.message),this.reset()}},{key:"onFail",value:function(e){this.errors.record(e)}}]),e}();t.default=a},33:function(e,t,n){"use strict";function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(){function e(){r(this,e),this.errors={}}return u(e,[{key:"has",value:function(e){return this.errors.hasOwnProperty(e)}},{key:"any",value:function(){return Object.keys(this.errors).length>0}},{key:"get",value:function(e){if(this.errors[e])return this.errors[e][0]}},{key:"record",value:function(e){this.errors=e}},{key:"clear",value:function(e){if(e)return void delete this.errors[e];this.errors={}}}]),e}();t.default=o},34:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={template:"<h2>example!!</h2>"}}},[11]);
+webpackJsonp([0],{
+
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _vue = __webpack_require__(3);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _axios = __webpack_require__(5);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _Form = __webpack_require__(32);
+
+var _Form2 = _interopRequireDefault(_Form);
+
+var _Example = __webpack_require__(34);
+
+var _Example2 = _interopRequireDefault(_Example);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.axios = _axios2.default;
+window.Form = _Form2.default;
+
+new _vue2.default({
+    el: '#app',
+    components: {
+        Example: _Example2.default
+    },
+    data: {
+        form: new _Form2.default({
+            name: '',
+            description: ''
+        })
+    },
+    methods: {
+        onSubmit: function onSubmit() {
+            this.form.post('/projects').then(function (response) {
+                return alert('Wahoo!');
+            });
+        }
+    }
+});
+
+/***/ }),
+
+/***/ 32:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Errors = __webpack_require__(33);
+
+var _Errors2 = _interopRequireDefault(_Errors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Form = function () {
+    function Form(data) {
+        _classCallCheck(this, Form);
+
+        this.originalData = data;
+
+        for (var field in data) {
+            this[field] = data[field];
+        }
+
+        this.errors = new _Errors2.default();
+    }
+
+    _createClass(Form, [{
+        key: 'data',
+        value: function data() {
+            var data = {};
+
+            for (var property in this.originalData) {
+                data[property] = this[property];
+            }
+
+            return data;
+        }
+    }, {
+        key: 'reset',
+        value: function reset() {
+            for (var field in this.originalData) {
+                this[field] = '';
+            }
+            this.errors.clear();
+        }
+    }, {
+        key: 'post',
+        value: function post(url) {
+            return this.submit('post', url);
+        }
+    }, {
+        key: 'put',
+        value: function put(url) {
+            return this.submit('put', url);
+        }
+    }, {
+        key: 'patch',
+        value: function patch(url) {
+            return this.submit('patch', url);
+        }
+    }, {
+        key: 'delete',
+        value: function _delete(url) {
+            return this.submit('delete', url);
+        }
+    }, {
+        key: 'submit',
+        value: function submit(requestType, url) {
+            var _this = this;
+
+            return new Promise(function (resolve, reject) {
+                axios[requestType](url, _this.data()).then(function (response) {
+                    _this.onSuccess(response.data);
+                    resolve(response.data);
+                }).catch(function (error) {
+                    _this.onFail(error.response.data);
+                    reject(error.response.data);
+                });
+            });
+        }
+    }, {
+        key: 'onSuccess',
+        value: function onSuccess(data) {
+            alert(data.message);
+            this.reset();
+        }
+    }, {
+        key: 'onFail',
+        value: function onFail(errors) {
+            this.errors.record(errors);
+        }
+    }]);
+
+    return Form;
+}();
+
+exports.default = Form;
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Errors = function () {
+    function Errors() {
+        _classCallCheck(this, Errors);
+
+        this.errors = {};
+    }
+
+    _createClass(Errors, [{
+        key: "has",
+        value: function has(field) {
+            return this.errors.hasOwnProperty(field);
+        }
+    }, {
+        key: "any",
+        value: function any() {
+            return Object.keys(this.errors).length > 0;
+        }
+    }, {
+        key: "get",
+        value: function get(field) {
+            if (this.errors[field]) {
+                return this.errors[field][0];
+            }
+        }
+    }, {
+        key: "record",
+        value: function record(errors) {
+            this.errors = errors;
+        }
+    }, {
+        key: "clear",
+        value: function clear(field) {
+            if (field) {
+                delete this.errors[field];
+                return;
+            }
+
+            this.errors = {};
+        }
+    }]);
+
+    return Errors;
+}();
+
+exports.default = Errors;
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    template: '<h2>example!!</h2>'
+};
+
+/***/ })
+
+},[11]);
