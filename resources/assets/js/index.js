@@ -1,3 +1,7 @@
-import './Form/index.js';
-import './Users/index.js';
-import './Coupon/index.js';
+import './bootstrap';
+import router from './routes';
+
+new Vue({
+    el: '#app',
+    router: router
+})
