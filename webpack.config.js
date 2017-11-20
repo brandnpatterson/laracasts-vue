@@ -22,7 +22,7 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        js: 'babel-loader!eslint-loader'
+                        js: 'babel-loader'
                     }
                 }
             },
