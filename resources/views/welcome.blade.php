@@ -18,8 +18,7 @@
       <input type="text" v-model="user.last">
     </div> -->
     <div id="coupons">
-      <coupon v-bind:code="coupon" v-on:input="coupon = arguments[0]"></coupon>
-      <coupon2 v-bind:value="coupon2" v-on:input="coupon2 = arguments[0]"></coupon2>
+      <coupon v-model="coupon"></coupon>
     </div>
     <script src="/js/vendor.js"></script>
     <script src="/js/app.js"></script>

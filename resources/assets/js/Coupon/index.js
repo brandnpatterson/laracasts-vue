@@ -1,35 +1,31 @@
 import Vue from 'vue'
 
 Vue.component('coupon', {
-    props: ['code'],
-
-    template: `
-        <input type="text" :value="code" @input="updateCode($event.target.value)" ref="input">
-    `,
-    methods: {
-        updateCode(code) {
-            this.$emit('input', code);
-        }
-    }
-});
-
-Vue.component('coupon2', {
     props: ['value'],
-
     template: `
         <input type="text" :value="value" @input="updateCode($event.target.value)" ref="input">
     `,
+    data () {
+        return {
+            invalids: ['ALLFREE', 'SOMETHINGELSE']
+        }
+    },
     methods: {
         updateCode(code) {
+            if (code === 'ALLFREE') {
+                alert('This coupon is no longer valid. Sorry!');
+
+                this.$refs.input.value = code = '';
+
+            }
             this.$emit('input', code);
         }
     }
 });
 
-let vm = new Vue({
+new Vue({
     el: '#coupons',
     data: {
-        coupon: 'FREEBIE',
-        coupon2: 'FREEBIE2'
+        coupon: 'FREEBIE'
     }
 });

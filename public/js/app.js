@@ -298,32 +298,30 @@ var _vue2 = _interopRequireDefault(_vue);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.component('coupon', {
-    props: ['code'],
-
-    template: '\n        <input type="text" :value="code" @input="updateCode($event.target.value)" ref="input">\n    ',
-    methods: {
-        updateCode: function updateCode(code) {
-            this.$emit('input', code);
-        }
-    }
-});
-
-_vue2.default.component('coupon2', {
     props: ['value'],
-
     template: '\n        <input type="text" :value="value" @input="updateCode($event.target.value)" ref="input">\n    ',
+    data: function data() {
+        return {
+            invalids: ['ALLFREE', 'SOMETHINGELSE']
+        };
+    },
+
     methods: {
         updateCode: function updateCode(code) {
+            if (code === 'ALLFREE') {
+                alert('This coupon is no longer valid. Sorry!');
+
+                this.$refs.input.value = code = '';
+            }
             this.$emit('input', code);
         }
     }
 });
 
-var vm = new _vue2.default({
+new _vue2.default({
     el: '#coupons',
     data: {
-        coupon: 'FREEBIE',
-        coupon2: 'FREEBIE2'
+        coupon: 'FREEBIE'
     }
 });
 
